@@ -6,19 +6,13 @@ import {getProducts} from '../../services/api';
 import CharactersList from './CharactersList';
 import RightIcon from '../icons/RightIcons';
 import LeftIcon from '../icons/LeftIcon';
+import useFavorites from '../../hooks/useFavorites';
 
 const Characters = () => {
-  const {
-    data,
-    getNextPage,
-    getPrevPage,
-    addToFavorites,
-    removeFromFavorites,
-    isFavorited,
-    loading,
-    favoriteList,
-  } = useCharactersData(getProducts);
-
+  const {data, getNextPage, getPrevPage, loading} =
+    useCharactersData(getProducts);
+  const {isFavorited, addToFavorites, removeFromFavorites, favoriteList} =
+    useFavorites();
   const memoizedCharactersList = useMemo(
     () => (
       <CharactersList

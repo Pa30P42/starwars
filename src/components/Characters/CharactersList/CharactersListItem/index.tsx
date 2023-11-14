@@ -20,7 +20,6 @@ const CharactersListItem: React.FC<Props> = ({
   const favorite = isFavorited(character.name);
   const onFavoritePress = () => {
     favorite ? removeFromFavorites(character) : addToFavorites(character);
-    console.log('item');
   };
   return (
     <View className="bg-white shadow-md rounded-lg p-4 w-full mx-auto my-2 flex-row justify-between">
